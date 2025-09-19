@@ -18,6 +18,8 @@
 #include "lvgl.h"
 #include "demos/lv_demos.h"
 
+#include "my_app.h"
+
 #include "driver/i2c.h"
 #include "esp_lcd_touch_gt911.h"
 
@@ -402,11 +404,14 @@ void app_main(void)
     // Lock the mutex due to the LVGL APIs are not thread-safe
     if (example_lvgl_lock(-1)) {
         // example_lvgl_demo_ui(disp);
-        lv_demo_widgets();
+        // lv_demo_widgets();
         // lv_demo_benchmark();
         // lv_demo_music();
         // lv_demo_stress();
         // Release the mutex
+
+        my_app_demo_start();
+
         example_lvgl_unlock();
     }
 }
